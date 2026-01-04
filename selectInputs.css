@@ -1,0 +1,30 @@
+.selectInputs{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  font-size: 1.1rem;
+  border: 1px solid #0d6bbd70;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.selectInputs select{
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.selectInputs select:hover{
+  cursor: pointer;
+}
+
+.selectInputs:hover{
+  border-color: #0d6bbd90;
+}
+
+.selectInputs:focus-within {
+  border-color: #0d6bbd;
+}

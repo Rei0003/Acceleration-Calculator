@@ -1,0 +1,39 @@
+.inputs{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  font-size: 1.1rem;
+  border: 1px solid #0d6bbd70;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.inputs input, .inputs select{
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.inputs input{
+  width: 80%;
+  background-color: white;
+}
+
+.inputs select{
+  width: 20%;
+}
+
+.inputs select:hover{
+  background-color: rgb(222, 222, 222);
+  cursor: pointer;
+}
+
+.inputs:hover{
+  border-color: #0d6bbd90;
+}
+
+.inputs:focus-within {
+  border-color: #0d6bbd;
+}

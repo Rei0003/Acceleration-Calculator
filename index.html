@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceleration calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="sectionTitles.css">
+  <link rel="stylesheet" href="inputSections.css">
+  <link rel="stylesheet" href="inputFields.css">
+  <link rel="stylesheet" href="inputTitles.css">
+  <link rel="stylesheet" href="basics.css">
+  <link rel="stylesheet" href="tips.css">
+  <link rel="stylesheet" href="inputs.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="selectInputs.css">
+  <link rel="stylesheet" href="resultsSection.css">
+  <link rel="stylesheet" href="table.css">
+  <link rel="stylesheet" href="image.css">
+</head>
+<body>
+  <div class="layout">
+    <div class="inputSection">
+      <div class="sectionTitle">
+        <i class="fa-solid fa-angle-down"></i>
+        <h3>Power and weight</h3>
+      </div>
+      <div class="inputField">
+        <div class="inputTitle">
+          <label for="enginePower">Engine power</label>
+          <i class="fa-regular fa-circle-question"></i>
+        </div>
+        <div class="inputs">
+          <input type="number" placeholder="Value" id="enginePower">
+          <select>
+            <option>kW</option>
+            <option>W</option>
+            <option>MW</option>
+            <option selected>HP</option>
+          </select>
+        </div>
+        <p class="tip" hidden>Power output of the engine/motor</p>
+      </div>
+       <div class="inputField">
+        <div class="inputTitle">
+          <label for="emptyWeight">Empty weight</label>
+          <i class="fa-regular fa-circle-question"></i>
+        </div>
+        <div class="inputs">
+          <input type="number" placeholder="Value" id="emptyWeight">
+          <select>
+            <option selected>kg</option>
+            <option>lb</option>
+            <option>t</option>
+            <option>US ton</option>
+            <option>long ton</option>
+          </select>
+        </div>
+        <p class="tip" hidden>Weight of the car when fully empty</p>
+      </div>
+      <div class="inputField">
+        <div class="inputTitle">
+          <label for="payloadWeight">Payload weight</label>
+          <i class="fa-regular fa-circle-question"></i>
+        </div>
+        <div class="inputs">
+          <input type="number" placeholder="Value" id="payloadWeight">
+          <select>
+            <option selected>kg</option>
+            <option>lb</option>
+            <option>t</option>
+            <option>US ton</option>
+            <option>long ton</option>
+          </select>
+        </div>
+        <p class="tip" hidden>Extra weight on top of the car's empty weight (people, cargo ..)</p>
+      </div>
+    </div>
+    <div class="inputSection">
+      <div class="sectionTitle">
+        <i class="fa-solid fa-angle-down"></i>
+        <h3>Drivetrain</h3>
+      </div>
+      <div class="inputField">
+        <div class="inputTitle">
+          <label for="vehicleType">Type of vehicle</label>
+        </div>
+        <div class="selectInputs">
+          <select id="vehicleType">
+            <option selected>Select</option>
+            <option>Sports car</option>
+            <option>Sedan</option>
+            <option>Hatchback</option>
+            <option>SUV</option>
+          </select>
+        </div>
+      </div>
+      <div class="inputField">
+        <div class="inputTitle">
+          <label for="driveType">Drive Type</label>
+        </div>
+        <div class="selectInputs">
+          <select id="driveType">
+            <option selected>Select</option>
+            <option>AWD (All Wheel Drive)</option>
+            <option>RWD (Rear Wheel Drive)</option>
+            <option>FWD (Front Wheel Drive)</option>
+          </select>
+        </div>
+      </div>
+      <div class="inputField">
+        <div class="inputTitle">
+          <label for="motorType">Motor</label>
+        </div>
+        <div class="selectInputs">
+          <select id="motorType">
+            <option selected>Select</option>
+            <option>Electric</option>
+            <option>Internal combustion engine</option>
+          </select>
+        </div>
+      </div>
+      <div class="inputField">
+        <div class="inputTitle">
+          <label for="gearboxType">Gearbox</label>
+        </div>
+        <div class="selectInputs">
+          <select id="gearboxType">
+            <option selected>Select</option>
+            <option>Direct-drive (Electric car)</option>
+            <option>Dual-clutch (Combustion car)</option>
+            <option>Automatic (Combustion car)</option>
+            <option>Manual (Combustion car)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="inputSection">
+      <div class="sectionTitle">
+        <i class="fa-solid fa-angle-down"></i>
+        <h3>Contact with the road</h3>
+      </div>
+      <div class="inputField">
+        <div class="inputTitle">
+          <label for="tireType">Tires</label>
+        </div>
+        <div class="selectInputs">
+          <select id="tireType">
+            <option selected>Select</option>
+            <option>Normal tires</option>
+            <option>Performance tires</option>
+          </select>
+        </div>
+      </div>
+      <div class="inputField">
+        <div class="inputTitle">
+          <label for="conditionType">Conditions</label>
+        </div>
+        <div class="selectInputs">
+          <select id="conditionType">
+            <option selected>Select</option>
+            <option>Dry</option>
+            <option>Damp</option>
+            <option>Wet</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="resultsSection">
+    <img src="car.svg" alt="car outline">
+    <div id="explenationContainer">
+      <p>
+        0–60 mph (0–100 km/h) measures how quickly a vehicle accelerates from a complete stop to a common real-world speed.
+        It is expressed in seconds — the lower the number, the faster the acceleration.
+        This metric gives a quick idea of a vehicle’s performance and is influenced by engine power, torque, weight, traction, and drivetrain layout. While widely used for comparison, real-world results can vary depending on conditions and driving technique.
+      </p>
+    </div>
+    <div>
+      <table>
+        <tr>
+          <th>Car</th>
+          <th>Time</th>
+          <th>Performance class</th>
+          <th>Power-to-weight</th>
+        </tr>
+        <tr>
+          <td>
+            Volkswagen Golf
+          </td>
+          <td>
+            ~8.6s
+          </td>
+          <td>
+            Avarage
+          </td>
+          <td>
+            108 hp/tonne
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Bmw M3
+          </td>
+          <td>
+            ~3.8s
+          </td>
+          <td>
+            Supercar
+          </td>
+          <td>
+            290 hp/tonne
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Your car
+          </td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <button>Clear all inputs</button>
+      <button>Calculate</button>
+    </div>
+  </div>
+
+  <!-- Js files -->
+  <script src="flipAnimation.js"></script>
+  <script src="tips.js"></script>
+</body>
+</html>

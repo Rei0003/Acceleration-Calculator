@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Serif:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+.inputTitle{
+  display: flex;
+  margin-bottom: 0.7rem;
+  color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+}
+
+.inputTitle label{
+  margin-right: 0.7rem;
+}
+
+.inputTitle i{
+  color: #0d6bbd;
+  padding: 0.3rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.inputTitle i:hover{
+  color: #0d6bbd70;
+  cursor: pointer;
+}
