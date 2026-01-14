@@ -1,5 +1,5 @@
 
-function clearInput(){
+function clearInputs(){
   var elements = document.getElementsByTagName("input");
   for (var i=0; i < elements.length; i++) {
     if (elements[i].type == "text") {
