@@ -20,11 +20,10 @@ body {
   body {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    padding: 0.5rem;
-    gap: 0.5rem;
     width: 100vw;
     height: auto;
+    padding: 0.5rem;
+    gap: 0.5rem;
     overflow-y: auto;
   }
 
@@ -32,12 +31,17 @@ body {
     flex: none;
     width: 100%;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     overflow: visible;
   }
 
-  .resultsSection {
+  .inputSection, .resultsSection {
     width: 100%;
   }
 }
+
+
 
 
