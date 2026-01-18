@@ -1,3 +1,5 @@
 img{
-  height: 370px;
+  height: auto;
+  width: auto;
+  max-height: 370px;
 }
