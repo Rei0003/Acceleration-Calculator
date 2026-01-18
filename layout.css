@@ -16,4 +16,28 @@ body {
   overflow-y: auto;
 }
 
+@media (max-width: 430px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    width: 100vw;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .layout {
+    flex: none;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .resultsSection {
+    width: 100%;
+  }
+}
+
 
