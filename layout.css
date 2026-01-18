@@ -16,8 +16,4 @@ body {
   overflow-y: auto;
 }
 
-@media (max-width: 430px){
-  .layout{
-    display: grid;
-  }
-}
+
