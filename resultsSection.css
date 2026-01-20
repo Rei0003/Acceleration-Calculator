@@ -9,7 +9,7 @@
   border-radius: 1.1rem;
   margin: 1.1rem;
   padding: 0.5rem;
-  background-color: white;
+  background-image: linear-gradient(rgb(153, 185, 240), rgb(206, 216, 234), rgb(153, 185, 240));
 }
 
 #explenationContainer{
@@ -42,6 +42,7 @@
   border-color: #0d6bbd90;
   transform: scale(1.1);
 }
+
 
 
 
