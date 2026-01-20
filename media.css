@@ -1,8 +1,8 @@
-@media (max-width: 1000px) {
+@media (max-width: 1000px ), (max-height: 880px) {
   body {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: auto;
     width: 100vw;
     padding: 0.5rem;
@@ -28,10 +28,15 @@
     overflow: visible;
   }
 
-  table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
+  table, th, td{
+    padding: 0.3rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1620px){
+  img{
+    max-height: 300px;
   }
 }
 
