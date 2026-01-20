@@ -1,4 +1,4 @@
-@media (max-width: 1000px ), (max-height: 880px) {
+@media (max-width: 1200px ), (max-height: 880px) {
   body {
     display: flex;
     align-items: center;
@@ -37,6 +37,10 @@
 @media (max-width: 1620px){
   img{
     max-height: 300px;
+  }
+
+  .inputSection, .resultsSection{
+    width: 90%;
   }
 }
 
