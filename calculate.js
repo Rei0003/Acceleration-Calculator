@@ -82,14 +82,6 @@ function calculatePToW() {
 
 function calculateAcceleration() {
 
-    const table = document.querySelector("table");
-    const row = table.rows[3];
-    
-    row.cells[1].textContent = "-";
-    row.cells[2].textContent = "-";
-    row.cells[3].textContent = "-";
-
-  
     const powerInput = document.getElementById("enginePower");
     const powerUnit = powerInput.nextElementSibling.value;
 
@@ -209,3 +201,12 @@ function calculateAcceleration() {
     row.cells[2].textContent = classText;
 }
 
+function clearTable(){
+
+    const table = document.querySelector("table");
+    const row = table.rows[3];
+  
+    row.cells[1].textContent = "-";
+    row.cells[2].textContent = "-";
+    row.cells[3].textContent = "-";
+}
