@@ -84,8 +84,8 @@ function calculateAcceleration() {
     const powerInput = document.getElementById("enginePower");
     const powerUnit = powerInput.nextElementSibling.value;
 
-    const emptyW = parseFloat(document.getElementById("emptyWeight").value) || 0;
-    const payloadW = parseFloat(document.getElementById("payloadWeight").value) || 0;
+    const emptyW = parseFloat(document.getElementById("emptyWeight").value);
+    const payloadW = parseFloat(document.getElementById("payloadWeight").value);
 
     const vehicleType = document.getElementById("vehicleType").value;
     const driveType = document.getElementById("driveType").value;
@@ -94,14 +94,30 @@ function calculateAcceleration() {
     const tireType = document.getElementById("tireType").value;
     const condition = document.getElementById("conditionType").value;
 
+    if (
+        isNaN(emptyW) || emptyW <= 0 ||
+        isNaN(payloadW) ||
+        isNaN(parseFloat(powerInput.value))
+    ) return;
+
+    const selects = [
+        vehicleType,
+        driveType,
+        motorType,
+        gearbox,
+        tireType,
+        condition
+    ];
+
+    if (selects.includes("Select")) return;
+
     let P = parseFloat(powerInput.value);
-    if (isNaN(P) || emptyW <= 0) return;
 
     switch (powerUnit) {
         case "HP": P *= 745.7; break;
         case "kW": P *= 1000; break;
         case "MW": P *= 1e6; break;
-        case "W": default: break;
+        case "W": break;
     }
 
     function toKg(value, unit) {
@@ -123,61 +139,54 @@ function calculateAcceleration() {
     const KE = 0.5 * totalMass * v60 * v60;
     const X = KE / P;
 
-    const a_values = {
+    const vehicleFactor = {
         "Sports car": 1.15,
         "Sedan": 1.27,
         "Hatchback": 1.30,
-        "SUV": 1.35,
-        "Select": 1.25
-    };
-    const a = a_values[vehicleType];
+        "SUV": 1.35
+    }[vehicleType];
 
-    const drive_penalty = {
+    const drivePenalty = {
         "AWD (All Wheel Drive)": 2.7,
         "RWD (Rear Wheel Drive)": 3.2,
-        "FWD (Front Wheel Drive)": 3.5,
-        "Select": 3.3
-    };
-    const b = drive_penalty[driveType];
+        "FWD (Front Wheel Drive)": 3.5
+    }[driveType];
 
-    const tire_penalty = {
+    const tirePenalty = {
         "Performance tires": 0.2,
-        "Normal tires": 0.5,
-        "Select": 0.4
-    };
-    const c = tire_penalty[tireType];
+        "Normal tires": 0.5
+    }[tireType];
 
-    const condition_penalty = {
+    const conditionPenalty = {
         "Dry": 0,
         "Damp": 0.5,
-        "Wet": 1.0,
-        "Select": 0.8
-    };
-    const d = condition_penalty[condition];
+        "Wet": 1.0
+    }[condition];
 
-    const e = (motorType === "Electric") ? 0.92 : 1.05;
-    const f = (tireType === "Performance tires") ? 0.95 : 1.08;
-    const g = (condition === "Dry") ? 1.0 : (condition === "Damp" ? 1.15 : 1.30);
+    const motorFactor = motorType === "Electric" ? 0.92 : 1.05;
+
+    const tireFactor = tireType === "Performance tires" ? 0.95 : 1.08;
+
+    const conditionFactor =
+        condition === "Dry" ? 1.0 :
+        condition === "Damp" ? 1.15 : 1.30;
 
     const gearboxPenalty = {
         "Direct-drive (Electric car)": 0,
         "Dual-clutch (Combustion car)": 0.25,
         "Automatic (Combustion car)": 0.4,
-        "Manual (Combustion car)": 0.6,
-        "Select": 0.4
-    };
-    const h = gearboxPenalty[gearbox];
+        "Manual (Combustion car)": 0.6
+    }[gearbox];
 
-    const base1 = a * X;
-    const base2 = b + c + d;
+    const base1 = vehicleFactor * X;
+    const base2 = drivePenalty + tirePenalty + conditionPenalty;
 
     let time060 = Math.max(base1, base2);
-    time060 = time060 * e * f * g + h;
+    time060 = time060 * motorFactor * tireFactor * conditionFactor + gearboxPenalty;
 
     const timeRounded = time060.toFixed(1);
 
-    let classText = "-";
-
+    let classText;
     if (time060 > 9) classText = "Slow";
     else if (time060 > 6.5) classText = "Average";
     else if (time060 > 4.5) classText = "Fast";
@@ -190,3 +199,4 @@ function calculateAcceleration() {
     row.cells[1].textContent = `${timeRounded}s`;
     row.cells[2].textContent = classText;
 }
+
