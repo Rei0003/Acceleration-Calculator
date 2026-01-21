@@ -121,7 +121,7 @@ function calculateAcceleration() {
 
     const v60 = 26.8224;
     const KE = 0.5 * totalMass * v60 * v60;
-    const X = KE / P; // seconds
+    const X = KE / P;
 
     const a_values = {
         "Sports car": 1.15,
